@@ -1,0 +1,22 @@
+name: Telegram Notification
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  send_notification:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send notification
+      uses: appleboy/telegram-action@v0.2.0
+      with:
+        to: ${{ secrets.TELEGRAM_CHAT_ID }}
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        message: |
+          Hello! This is a notification from GitHub Actions.
+          Commit message: ${{ github.event.head_commit.message }}
+          Committer: ${{ github.event.head_commit.author.name }}
+          Repository: ${{ github.repository }}
