@@ -11,17 +11,18 @@ on:
     #types: [completed]
 
 jobs:
-  on-success:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    steps:
-      - run: echo 'The triggering workflow passed'
+  # on-success:
+  #   runs-on: ubuntu-latest
+  #   if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  #   steps:
+  #     - run: echo 'The triggering workflow passed'
   on-failure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
       - run: echo 'The triggering workflow failed'
-  on-success1:    
+  on-success:  
+    runs-on: ubuntu-latest  
     steps:
     - name: Send notification
       uses: appleboy/telegram-action@master
