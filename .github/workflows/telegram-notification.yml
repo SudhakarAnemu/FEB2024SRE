@@ -1,5 +1,5 @@
-name: Telegram Notification
-
+#name: Telegram Notification
+name: TelegramNtfctn
 on:
   push:
     branches:
