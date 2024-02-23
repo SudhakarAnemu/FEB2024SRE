@@ -4,8 +4,11 @@ name: WorkflowRun
 
 on:
   workflow_run:
-    workflows: [CI]
+    workflows: [CI,TelegramNtfctn]
     types: [completed]
+
+    #workflows: [TelegramNtfctn]
+    #types: [completed]
 
 jobs:
   on-success:
