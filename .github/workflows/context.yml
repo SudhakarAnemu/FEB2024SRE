@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Dump GitHub context
+      - name: Dump github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github)}}
         run: echo "$GITHUB_CONTEXT"
@@ -31,7 +31,7 @@ jobs:
           STRATEGY_CONTEXT: ${{ toJson(strategy)}}
         run: echo "$STRATEGY_CONTEXT"
 
-      - name: Dump matirix context
+      - name: Dump matrix context
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix)}}
         run: echo "$MATRIX_CONTEXT"
