@@ -1,1 +1,35 @@
+name: ExWorkflowPushToMAR
 
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  repo_copy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+#       - name: Use secret 
+#         run: echo ${{secrets.TOKEN_MARREPO}}
+
+#       - name: copy to new repo 
+#         run : 
+# --> here we need to give token and push..           git remote add origin https://github.com/SudhakarAnemu/MARSRE2024.git
+#           git push upstream main
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "sudhakar.anemu@gmail.com"
+          git config --global user.name "GitHub Actions"
+
+      - name: Push to Another Repository
+        run: |
+          git remote add origin https://github.com/SudhakarAnemu/MARSRE2024.git
+          git push https://github.com/SudhakarAnemu/MARSRE2024.git main
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_MARREPO }}
+
+
+ 
